@@ -1,14 +1,4 @@
-# benchmarks
+Conway's GOL code used in clojure, along with lein project example from neanderthal.
+Contains examples cited in the report, dependencies for testing neanderthal.
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2015 Dragan Djuric
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Neanderthal libraries depend on having Intel MKL installed and on the path
