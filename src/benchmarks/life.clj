@@ -78,3 +78,21 @@
 (time (doall (fmap long-running-job (range 4))))
 
 (conway [10 10] glider 10)
+
+; Unity create world
+(defn create-world
+  [w h & living-cells]
+  (doseq [o (objects-named "Alive(Clone)")](destroy o))
+  (doseq [o (objects-named "Dead(Clone)")](destroy o))
+  (vec (for [y (range w)]
+         (vec (for [x (range w)]
+                (if (contains? (first living-cells) [y x]) (unitySpawn x y) (deadSpawn x y)))))))
+
+; Ideal parallelism
+(map (fn [y] (pmap (fn [x] (unitySpawn x y))[1 2 3]))[1 2 3])
+
+; fake unity spawn tester
+(defn unitySpawn  [x y]
+    (Thread/sleep 1000) ; wait for 1 seconds
+    (str x y))
+
